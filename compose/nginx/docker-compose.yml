@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  nginx:
+    build:
+      context: ./build
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      # $ needs to be escaped as $$
+      - DOMAIN_REGEX=gitdeploy.xyz$$
+    volumes:
+      - gitdeploy:/gitdeploy:ro
+    restart: always
+
+networks:
+  default:
+    external: true
+    name: gitdeploy
+
+volumes:
+  gitdeploy:
+    external: true

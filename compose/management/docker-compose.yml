@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  docker-monitor:
+    image: f1nnm/docker-monitor:release-0.1.5
+    ports:
+      - "8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    restart: always
+
+  git-manager:
+    image: f1nnm/git-docker-manager:release-0.5.24
+    ports:
+      - "5000"
+    environment:
+      - WATCHED_REPO=F1nnM/server-management
+      - PAT=""
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - gitdeploy:/app/cloned-repo/
+
+    restart: always
+
+  nginx:
+    build:
+      context: ./build_nginx
+    ports:
+      - "5555:443"
+    environment:
+      # set to nothing to not issue certificats
+      - DOMAIN_REGEX=
+    volumes:
+      - gitdeploy:/gitdeploy:ro
+    restart: always
+
+networks:
+  default:
+    name: gitdeploy_management
+
+volumes:
+  gitdeploy:
+    external: true
+
