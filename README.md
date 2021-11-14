@@ -22,7 +22,10 @@ You can generate a new password by running the following command:
 Paste the output of this command into the file `/compose/management/build_nginx/.htpasswd`, replacing the other hash.
 There you can also change the username or add more users.
 
-### 5. Debug issues
+### 6. Finished.
+You can see the monitoring panel under the port 5555.
+
+### Debugging issues
 If you have any issues, because of a faulty configuration, follow the following steps:
 #### 1. Update the configuration and push it to the repository
 #### 2. Check if it updated automatically
