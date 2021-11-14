@@ -16,6 +16,12 @@ The URL of the webhook should be `https://<your server>:5555/webhook`.
 ### 4. If your repo is private:
 If your repository is private, you need to add a Personal Auth Token (PAT) to the file "compose/management/docker-compose.yml" in line 18.
 
+### 5. Optional, but recommended: Change admin password
+You can generate a new password by running the following command:
+```openssl passwd -5```
+Paste the output of this command into the file `/compose/management/build_nginx/.htpasswd`, replacing the other hash.
+There you can also change the username or add more users.
+
 ### 5. Debug issues
 If you have any issues, because of a faulty configuration, follow the following steps:
 #### 1. Update the configuration and push it to the repository
