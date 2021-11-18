@@ -6,7 +6,7 @@ The basic config for GitDeploy. Fork this repository to get started.
 
 ### 2. Run init script
 ```
-bash <(curl -s https://github.com/The-GitDeploy/core-config/blob/main/setup.sh)
+bash <(curl -s https://raw.githubusercontent.com/The-GitDeploy/core-config/main/setup.sh)
 ```
 ### 3. Fork this repo and set up the Github Webhook
 This repository contians the basic ocnfig to get you started; fork it, to have your own repo ready to go.
