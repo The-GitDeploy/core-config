@@ -10,7 +10,7 @@ services:
     restart: always
 
   git-manager:
-    image: f1nnm/git-docker-manager:release-0.5.25
+    image: f1nnm/git-docker-manager:release-0.5.26
     ports:
       - "5000"
     environment:
